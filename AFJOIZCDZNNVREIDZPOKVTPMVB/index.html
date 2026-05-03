@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nothing Here</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&display=swap');
+
+  :root {
+    --bg: #080c0a;
+    --surface: #0d1410;
+    --border: #1a2e1f;
+    --green: #00ff41;
+    --green-dim: #00b32d;
+    --green-glow: rgba(0,255,65,0.15);
+    --text: #c8e6c9;
+    --text-dim: #4a6e50;
+    --accent: #00ffa3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--bg);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, var(--border) 39px, var(--border) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, var(--border) 39px, var(--border) 40px);
+    background-size: 40px 40px;
+    color: var(--text);
+    font-family: 'Share Tech Mono', monospace;
+    min-height: 100vh;
+    padding: 3rem 1.5rem;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 3px,
+      rgba(0,0,0,0.08) 3px,
+      rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .header {
+    border-left: 3px solid var(--green);
+    padding-left: 1.5rem;
+    margin-bottom: 3rem;
+    animation: fadeIn 0.8s ease forwards;
+  }
+
+  .header .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .header h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    color: var(--green);
+    text-shadow: 0 0 30px var(--green-glow), 0 0 60px rgba(0,255,65,0.05);
+    line-height: 1;
+  }
+
+  .main-text {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green-dim);
+    padding: 2rem 2rem;
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    color: var(--text);
+    line-height: 1.8;
+    animation: fadeIn 0.8s 0.2s ease both;
+  }
+
+  #background-img {
+    display: none;
+  }
+
+  .footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.8s 0.5s ease both;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    margin-right: 0.4rem;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--green); }
+    50% { opacity: 0.3; box-shadow: none; }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="header">
+    <p class="eyebrow">Capture The Flag</p>
+    <h1>CTF<br>Challenge</h1>
+  </header>
+
+  <div class="main-text">
+    There's nothing here, or is there?
+  </div>
+
+  <img id="background-img" src="texture.jpg" alt="key">
+
+  <footer class="footer">
+    <span><span class="dot"></span>system online</span>
+    <span>phylixius · CTF v1.0</span>
+  </footer>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
